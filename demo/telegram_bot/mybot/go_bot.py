@@ -21,7 +21,7 @@ def run_go(code):
         return r['Errors'].strip()
 
 
-@chatbot.add_command("/quit", description="exit from python playground!", strict=True)
+@chatbot.add_command("/quit", description="exit from go playground!", strict=True)
 def quit_handler():
     message = chatrouter.data_user
     db.update_user_session(message.from_user.id, "main")

@@ -7,21 +7,21 @@ import telebot
 chatbot = chatrouter.group("main", "this is main bot")
 
 
-@chatbot.add_command("/nim_playground", "run nim playground!")
+@chatbot.add_command("/nim_playground", "run nim playground!", strict=True)
 def start_nim():
     message = chatrouter.data_user
     db.update_user_session(message.from_user.id, "nim_playground")
     return chatrouter.util.get_func("nim_playground", "/start")()
 
 
-@chatbot.add_command("/python_playground", "run python playground!")
+@chatbot.add_command("/python_playground", "run python playground!", strict=True)
 def start_nim():
     message = chatrouter.data_user
     db.update_user_session(message.from_user.id, "python_playground")
     return chatrouter.util.get_func("python_playground", "/start")()
 
 
-@chatbot.add_command("/go_playground", "run go playground!")
+@chatbot.add_command("/go_playground", "run go playground!", strict=True)
 def start_nim():
     message = chatrouter.data_user
     db.update_user_session(message.from_user.id, "go_playground")
