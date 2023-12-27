@@ -6,7 +6,7 @@ Simple but useful router for chatbot.
 """
 
 __author__ = "guangrei"
-__version__ = "v0.0.4"
+__version__ = "v0.0.5"
 
 _data: dict = {}  # chatrouter storage
 data_user: Any = None  # data user storage
@@ -50,7 +50,7 @@ class group:
         """
         fungsi untuk menambahkan command
         """
-        method = self.compile(route)
+        method = util.compile(route)
 
         def dec(func: Callable) -> Callable:
             _data[self.id][method] = {}
@@ -69,13 +69,6 @@ class group:
             _data[self.id]["__default__"]["callback"] = func
             return func
         return dec
-
-    def compile(self, string: str) -> str:
-        """
-        fungsi ini untuk mengcompile regex pattern
-        """
-        pattern = re.sub(r'\{([^}]+)\}', r'(.*)', string)
-        return pattern.strip()
 
     def _help(self) -> str:
         """
@@ -105,7 +98,35 @@ class util:
         """
         fungsi utilitas ini dapat digunakan untuk mengambil callback pada group dan route tertentu
         """
+        route = util.compile(route)
         return _data[group][route]["callback"]
+        
+    def compile(string: str) -> str:
+        """
+        fungsi ini untuk mengcompile regex pattern
+        """
+        pattern = re.sub(r'\{([^}]+)\}', r'(.*)', string)
+        return pattern.strip()
+        
+    def group_exists(name: str) -> bool:
+        """
+        fungsi ini untuk mengecek group
+        """
+        return name in _data
+        
+    def command_exists(group: str, command: str) -> bool:
+        """
+        fungsi ini untuk mengecek command
+        """
+        command = util.compile(command)
+        return command in _data[group]
+    
+    def remove_command(group: str, command: str) -> None:
+        """
+        fungsi ini untuk menghapus command
+        """
+        command = util.compile(command)
+        del _data[group][command]
 
     def _route(pattern: str, string: str, strict: bool) -> Union[list, bool]:
         """
