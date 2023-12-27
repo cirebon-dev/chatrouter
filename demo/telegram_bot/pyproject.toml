@@ -9,7 +9,7 @@ packages = [{include = "telegram_bot"}]
 
 [tool.poetry.dependencies]
 python = "^3.10"
-chatrouter = "^0.0.3"
+chatrouter = "^0.0.5"
 bottle = "^0.12.25"
 requests = "^2.31.0"
 pyTelegramBotAPI = "^4.14.1"
