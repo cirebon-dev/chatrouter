@@ -29,6 +29,6 @@ def add_user(id):
 
 
 def update_user_session(id, loc):
-    if loc not in chatrouter._data:
+    if not chatrouter.group_exists(loc):
         raise ValueError
     r.set(id, loc)
