@@ -53,6 +53,8 @@ func = chatrouter.util.get_func("group_name", "command_name")
 
 7. object storage `chatrouter.data_user`.
 
+8. support asynchronous.
+
 ## installation
 
 ```
@@ -96,5 +98,25 @@ if __name__ == '__main__':
             exit(0)
 
 ```
+asynchronous example
+```python
+#-*-coding:utf8;-*-
+import asyncio
+import chatrouter
 
+
+chatbot = chatrouter.group("test", asynchronous=True)
+
+@chatbot.add_command("call me {name}")
+async def test(name):
+    return f"hello {name}!"
+
+async def main():
+    user_input = "call me human"
+    response = await chatrouter.async_run(chatbot, user_input)
+    print(response)
+
+if __name__ == '__main__':
+    asyncio.run(main())
+```
 for more complex example, please open [demo/telegram_bot](https://github.com/cirebon-dev/chatrouter/tree/main/demo/telegram_bot).
