@@ -1,12 +1,13 @@
 # -*-coding:utf8;-*-
 from typing import Any, Callable, Union
 import re
+import inspect
 """
 Simple but useful router for chatbot.
 """
 
 __author__ = "guangrei"
-__version__ = "v1.0.0"
+__version__ = "v1.0.1"
 
 _data: dict = {}  # chatrouter storage
 data_user: Any = None  # data user storage
@@ -32,6 +33,7 @@ class group:
         """
         fungsi ini adalah kelas konstruktor
         """
+        self._async = asynchronous
         self.start_msg = _start_template_.format(
             name=name, description=description).strip()
         if name not in _data:
@@ -59,6 +61,10 @@ class group:
         method = util.compile(route)
 
         def dec(func: Callable) -> Callable:
+            if self._async and not inspect.iscoroutinefunction(func):
+                raise ValueError("function must be awaitable!")
+            elif not self._async and inspect.iscoroutinefunction(func):
+                raise ValueError("coroutine function is not supported in synchronous mode!")
             _data[self.id][method] = {}
             _data[self.id][method]["callback"] = func
             _data[self.id][method]["description"] = description
@@ -71,6 +77,10 @@ class group:
         fungsi untuk menambahkan default command
         """
         def dec(func: Callable) -> Callable:
+            if self._async and not inspect.iscoroutinefunction(func):
+                raise ValueError("function must be awaitable!")
+            elif not self._async and inspect.iscoroutinefunction(func):
+                raise ValueError("coroutine function is not supported in synchronous mode!")
             _data[self.id]["__default__"] = {}
             _data[self.id]["__default__"]["callback"] = func
             return func
@@ -256,6 +266,10 @@ def add_command(route: str, description: str = "", strict: bool = False, group_r
     method = util.compile(route)
 
     def dec(func: Callable) -> Callable:
+        if asynchronous and not inspect.iscoroutinefunction(func):
+            raise ValueError("function must be awaitable!")
+        elif not asynchronous and inspect.iscoroutinefunction(func):
+            raise ValueError("coroutine function is not supported in synchronous mode!")
         _data[group_route][method] = {}
         _data[group_route][method]["callback"] = func
         _data[group_route][method]["description"] = description
@@ -271,6 +285,10 @@ def add_default_command(group_route: str = "main", asynchronous: bool = False) -
     group(group_route, asynchronous=asynchronous)
 
     def dec(func: Callable) -> Callable:
+        if asynchronous and not inspect.iscoroutinefunction(func):
+            raise ValueError("function must be awaitable!")
+        elif not asynchronous and inspect.iscoroutinefunction(func):
+            raise ValueError("coroutine function is not supported in synchronous mode!")
         _data[group_route]["__default__"] = {}
         _data[group_route]["__default__"]["callback"] = func
         return func
