@@ -1,4 +1,0 @@
-flake8
-twine
-autopep8
-mypy
