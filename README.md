@@ -55,6 +55,15 @@ func = chatrouter.util.get_func("group_name", "command_name")
 
 8. support asynchronous.
 
+9. support midleware
+
+```python
+@chatbot.midleware()
+def limit_user():
+  allowed_user_id = (123, 456)
+  return chatrouter.data_user.id in allowed_user_id
+```
+
 ## installation
 
 ```
