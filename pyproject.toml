@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "chatrouter"
-version = "1.0.2"
+version = "1.0.3"
 description = "router for chatbot"
 authors = ["guangrei"]
 license = "mit"

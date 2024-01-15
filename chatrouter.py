@@ -7,7 +7,7 @@ Simple but useful router for chatbot.
 """
 
 __author__ = "guangrei"
-__version__ = "v1.0.2"
+__version__ = "v1.0.3"
 
 _data: dict = {}  # chatrouter storage
 data_user: Any = None  # data user storage
@@ -246,7 +246,7 @@ def run(route: group, msg: str) -> Union[str, None]:
     ini adalah fungsi utama untuk interpretasi chatrouter
     """
     if "__midleware__" in _data[route.id]:
-        coba = _data[route.id]["__default__"]["callback"]()
+        coba = _data[route.id]["__midleware__"]["callback"]()
         if coba is not True:
             return coba
     if len(msg):
@@ -266,7 +266,7 @@ async def async_run(route: group, msg: str) -> Union[str, None]:
     ini adalah versi async dari function run
     """
     if "__midleware__" in _data[route.id]:
-        coba = await _data[route.id]["__default__"]["callback"]()
+        coba = await _data[route.id]["__midleware__"]["callback"]()
         if coba is not True:
             return coba
     if len(msg):
