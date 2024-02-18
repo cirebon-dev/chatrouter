@@ -2,12 +2,13 @@
 from typing import Any, Callable, Union
 import re
 import inspect
+import plugins
 """
 Simple but useful router for chatbot.
 """
 
 __author__ = "guangrei"
-__version__ = "v1.0.3"
+__version__ = "v1.0.4"
 
 _data: dict = {}  # chatrouter storage
 data_user: Any = None  # data user storage

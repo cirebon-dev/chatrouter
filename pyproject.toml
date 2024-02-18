@@ -1,13 +1,13 @@
 [tool.poetry]
 name = "chatrouter"
-version = "1.0.3"
+version = "1.0.4"
 description = "router for chatbot"
 authors = ["guangrei"]
 license = "mit"
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.10"
+python = "^3.6"
 
 [tool.poetry.group.dev.dependencies]
 flake8 = "^7.0.0"

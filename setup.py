@@ -18,8 +18,9 @@ setup(
     author_email='myawn@pm.me',
     url='https://github.com/cirebon-dev/chatrouter',
     py_modules=['chatrouter'],
+    packages=['chatrouterext'],
     # scripts=['chatrouter.py'],
     license='MIT',
     platforms='any',
-    # install_requires=["requests"]
+    install_requires=["requests"]
 )
