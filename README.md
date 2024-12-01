@@ -1,3 +1,11 @@
+[![ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/charliermarsh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff) 
+[![status workflow test](https://github.com/cirebon-dev/chatrouter/actions/workflows/python-app.yml/badge.svg)](https://github.com/cirebon-dev/chatrouter/actions) 
+[![status workflow build](https://github.com/cirebon-dev/chatrouter/actions/workflows/release_to_pypi.yml/badge.svg)](https://github.com/cirebon-dev/chatrouter/actions)
+
+[![Downloads](https://static.pepy.tech/badge/chatrouter)](https://pepy.tech/project/chatrouter)
+[![Downloads](https://static.pepy.tech/badge/chatrouter/month)](https://pepy.tech/project/chatrouter)
+[![Downloads](https://static.pepy.tech/badge/chatrouter/week)](https://pepy.tech/project/chatrouter)
+
 Chatrouter is an enhanced router for chatbots and easily integrates with any bot library.
 
 ## key features

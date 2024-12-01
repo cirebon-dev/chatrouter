@@ -8,7 +8,7 @@ with open(path.join(this_directory, "README.md")) as f:
 
 setup(
     name="chatrouter",
-    version="v1.0.7",
+    version="v1.0.8",
     description="Typed router for chatbot",
     long_description=long_description,
     long_description_content_type="text/markdown",
