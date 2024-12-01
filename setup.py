@@ -8,7 +8,7 @@ with open(path.join(this_directory, "README.md")) as f:
 
 setup(
     name="chatrouter",
-    version="v1.0.6",
+    version="v1.0.7",
     description="Typed router for chatbot",
     long_description=long_description,
     long_description_content_type="text/markdown",
@@ -19,5 +19,5 @@ setup(
     package_data={"chatrouter": ["py.typed"]},
     license="MIT",
     platforms="any",
-    install_requires=["typing-extensions", "types-aiofiles"],
+    install_requires=["aiofiles", "typing-extensions", "types-aiofiles"],
 )
