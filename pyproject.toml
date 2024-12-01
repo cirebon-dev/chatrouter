@@ -8,12 +8,15 @@ readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.10"
+types-pytz = "^2024.2.0.20241003"
 
 [tool.poetry.group.dev.dependencies]
-flake8 = "^7.0.0"
-autopep8 = "^2.0.4"
-mypy = "^1.8.0"
-twine = "^4.0.2"
+ruff = "^0.8.1"
+mypy = "^1.13.0"
+pytz = "^2024.2"
+types-setuptools = "^75.6.0.20241126"
+aiofiles = "^24.1.0"
+types-aiofiles = "^24.1.0.20240626"
 
 [build-system]
 requires = ["poetry-core"]
