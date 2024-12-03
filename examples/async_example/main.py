@@ -3,7 +3,7 @@ import chatrouter
 from db import user
 import asyncio
 
-chatrouter.autoloader("models")
+chatrouter.autoloader("asyncmodels")
 
 
 async def main() -> None:

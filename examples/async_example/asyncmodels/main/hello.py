@@ -1,5 +1,5 @@
 # -*-coding:utf8;-*-
-from models.main import chatbot
+from asyncmodels.main import chatbot
 
 
 @chatbot.add_command("hello")

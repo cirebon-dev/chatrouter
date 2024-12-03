@@ -1,7 +1,7 @@
 # -*-coding:utf8;-*-
 import chatrouter
 from typing import Any
-from models.main import chatbot
+from asyncmodels.main import chatbot
 from db import user
 
 

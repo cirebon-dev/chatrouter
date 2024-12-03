@@ -1,5 +1,5 @@
 # -*-coding:utf8;-*-
-from models.main import chatbot
+from asyncmodels.main import chatbot
 import pytz
 from datetime import datetime
 from typing import Any

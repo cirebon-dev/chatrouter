@@ -1,5 +1,5 @@
 # -*-coding:utf8;-*-
-from models.next import chatbot
+from asyncmodels.next import chatbot
 import chatrouter
 from db import user
 from typing import Any

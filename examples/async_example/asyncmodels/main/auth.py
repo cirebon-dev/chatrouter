@@ -1,6 +1,6 @@
 # -*-coding:utf8;-*-
 from db import user
-from models.main import chatbot
+from asyncmodels.main import chatbot
 
 
 username = "admin"
