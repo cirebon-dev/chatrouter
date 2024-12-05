@@ -35,7 +35,10 @@ jobs:
 
     - name: Type checking with mypy
       run: |
-        poetry run mypy --strict --exclude build .
+        poetry run mypy --strict chatrouter
+        poetry run mypy --strict examples/example
+        poetry run mypy --strict examples/async_example
+        poetry run mypy --strict setup.py
 
     - name: Unit testing
       run: |
